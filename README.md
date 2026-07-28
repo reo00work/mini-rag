@@ -1,5 +1,7 @@
 # mini-rag — APIキー不要で動く最小RAGデモ
 
+**公開デモ: https://mini-rag-drab.vercel.app**
+
 「社内文書 RAG チャットボット」の最小実証。  
 **ローカルで完結**（課金 API キー不要）で RAG の仕組みを動かして見せられるポートフォリオ用デモ。
 
