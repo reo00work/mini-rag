@@ -90,10 +90,24 @@ def render_index_html() -> bytes:
   input[type=text] { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
   button { padding: 10px 18px; border: none; border-radius: 6px; background: #2d6cdf; color: #fff; cursor: pointer; }
   button:disabled { background: #999; cursor: default; }
+  .demo-intro { background: #eef4ff; border: 1px solid #cfe0ff; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; line-height: 1.7; color: #333; }
+  .demo-intro dt { font-weight: bold; margin-top: 8px; }
+  .demo-intro dt:first-child { margin-top: 0; }
+  .demo-intro dd { margin: 0 0 2px 0; }
 </style>
 </head>
 <body>
 <h1>mini-rag デモ — 社内文書に質問してください</h1>
+<div class="demo-intro">
+  <dl>
+    <dt>想定シーン</dt>
+    <dd>社内規程・マニュアル・FAQを社員がその都度検索したり総務・情シスに問い合わせたりせず、チャット形式で聞ける状態にしたい場面を想定しています。</dd>
+    <dt>読み込んでいるデータ</dt>
+    <dd>docs/ 配下の架空社内文書5点（社員ハンドブック・経費申請FAQ・ITヘルプデスク利用マニュアル・情報セキュリティポリシー・テレワーク勤務規程）です。休暇制度や経費申請の期限、パスワード要件など、実在の会社を模した内容ですが全てデモ用の架空データです。</dd>
+    <dt>見てほしいポイント</dt>
+    <dd>TF-IDFで質問と文書チャンクの類似度を計算し、根拠となった出典（ファイル名・チャンク番号）付きで抜粋を返します。APIキー未設定でもこの抜粋+出典表示だけで動作し、ANTHROPIC_API_KEY / OPENAI_API_KEYを設定すると同じ検索結果をもとにLLMが自然文で要約するようになります。</dd>
+  </dl>
+</div>
 <div id="log"><div class="msg bot">社員ハンドブック・セキュリティポリシー・経費申請FAQ等について質問できます。（例：「有給休暇は何日もらえますか？」）</div></div>
 <form id="form">
   <input type="text" id="question" placeholder="質問を入力してください" autocomplete="off">
